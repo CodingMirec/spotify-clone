@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { getTokenFromUrl } from "./spotify";
 import { useStateValue } from "./StateProvider";
 import SpotifyWebApi from "spotify-web-api-js";
@@ -32,14 +32,13 @@ function App() {
         });
       });
     }
-
-    console.log("token >>> ", token);
   }, []);
 
-  console.log("person", user);
-  console.log("token", token);
-
-  return <div className="app">{token ? <Player /> : <Login />}</div>;
+  return (
+    <div className="app">
+      {token ? <Player spotify={spotify} /> : <Login />}
+    </div>
+  );
 }
 
 export default App;
