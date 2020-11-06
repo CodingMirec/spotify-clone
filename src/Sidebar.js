@@ -10,6 +10,7 @@ import "./Sidebar.css";
 
 function Sidebar() {
   const [{ playlists }, dispatch] = useStateValue();
+  console.log(playlists);
 
   return (
     <div className="sidebar">
