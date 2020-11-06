@@ -96,12 +96,21 @@ function Footer({ spotify }) {
       </div>
       <div className="footer__center">
         <ShuffleIcon className="footer__green" />
-        <SkipPreviousIcon className="footer__icon" />
-        <PlayCircleOutlineOutlinedIcon
-          fontSize="large"
-          className="footer__icon"
-        />
-        <SkipNextIcon className="footer__icon" />
+        <SkipPreviousIcon onClick={skipNext} className="footer__icon" />
+        {playing ? (
+          <PlayCircleOutlineOutlinedIcon
+            onClick={handlePlayPause}
+            fontSize="large"
+            className="footer__icon"
+          />
+        ) : (
+          <PlayCircleOutlineOutlinedIcon
+            onClick={handlePlayPause}
+            fontSize="large"
+            className="footer__icon"
+          />
+        )}
+        <SkipNextIcon onClick={skipPrevious} className="footer__icon" />
         <RepeatIcon className="footer__green" />
       </div>
       <div className="footer__right">
@@ -113,7 +122,7 @@ function Footer({ spotify }) {
             <VolumeDownIcon />
           </Grid>
           <Grid item xs>
-            <Slider />
+            <Slider aria-labelledby="continuous-slider" />
           </Grid>
         </Grid>
       </div>
